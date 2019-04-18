@@ -1,4 +1,4 @@
-# go-secret_value - Don't send secrets to logs
+# go-secretvalue - Don't send secrets to logs
 
 This Go library doesn't do much except encourage your to mark all your
 application secrets properly.
@@ -10,7 +10,7 @@ secret := os.GetEnv("OAUTH_TOKEN")
 
 Write:
 ```go
-secret := secret_value.New("oauth-token")
+secret := secretvalue.New("oauth-token")
 secret.SetString(os.GetEnv("OAUTH_TOKEN"))
 ```
 
@@ -27,6 +27,11 @@ Remember these are only publicly known instances.
 * GitHub: https://www.zdnet.com/article/github-says-bug-exposed-account-passwords/
 * Facebook: https://www.theverge.com/2019/3/21/18275837/facebook-plain-text-password-storage-hundreds-millions-users
 * ...
+
+## Missing features
+
+* Optionally use `mlock(2)` on supported systems to prevent the value from
+  going to swap.
 
 ## Other attacks
 
