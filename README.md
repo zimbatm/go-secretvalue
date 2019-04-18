@@ -12,6 +12,7 @@ Write:
 ```go
 secret := secretvalue.New("oauth-token")
 secret.SetString(os.GetEnv("OAUTH_TOKEN"))
+os.Unsetenv("OAUTH_TOKEN")
 ```
 
 By doing so, it will prevent the secrets from going to the logs inadvertedly.
