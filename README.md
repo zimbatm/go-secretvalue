@@ -20,6 +20,11 @@ By doing so, it will prevent the secrets from going to the logs inadvertedly.
 The `secret.String()` function exposes the secret name instead of the value,
 which avoids sending these into logs by mistake. This happens a lot, trust me.
 
+## StringFlag
+
+This library can also be used with the stdlib flag library. See
+string_flag_test.go for an example.
+
 ## Companies that have sent passwords to logs by mistake
 
 Remember these are only publicly known instances.
