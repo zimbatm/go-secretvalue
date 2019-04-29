@@ -8,7 +8,10 @@ import (
 )
 
 func TestSecretValue(t *testing.T) {
-	secret := secretvalue.New("oauth-token").SetString("this is a secret")
+	secret := secretvalue.New("oauth-token")
+	assert.False(t, secret.IsSet())
+	secret.SetString("this is a secret")
+	assert.True(t, secret.IsSet())
 
 	// Test that logging doesn't leak the secret
 	assert.Equal(t, "<secret:oauth-token>", fmt.Sprintf("%s", secret))
